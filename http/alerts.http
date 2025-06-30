@@ -1,0 +1,9 @@
+### send alert
+POST http://localhost:8080/api/v1/alerts/send
+Content-Type: application/json
+
+{
+  "name": "test_alert",
+  "reason": "generated for a demo",
+  "source": "rest api"
+}

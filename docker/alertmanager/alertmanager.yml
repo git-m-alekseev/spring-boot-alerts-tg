@@ -1,0 +1,29 @@
+templates:
+  - /etc/alertmanager/templates/*.tmpl
+
+global:
+  resolve_timeout: 21s
+
+route:
+  group_by: ['...']
+  group_wait: 2s
+  group_interval: 2s
+  repeat_interval: 7s
+  receiver: 'telegram'
+  routes:
+    - receiver: 'telegram'
+      group_by: ['...']
+      continue: true
+      matchers:
+        - application="spring-boot-alerts-tg"
+
+# write telegram receiver
+receivers:
+  - name: 'telegram'
+    telegram_configs:
+      - api_url: 'https://api.telegram.org'
+        chat_id: -1002844406145
+        send_resolved: false
+        parse_mode: 'HTML'
+        message: '{{ template "telegram_alerts.message" . }}'
+        bot_token: '7922280427:AAGURcCwmpqCeRNwOR5VnhuMgHbOV-vLrAI'

@@ -1,0 +1,14 @@
+spring:
+  application:
+    name: spring-boot-alerts-tg
+
+alertmanager:
+  uri: http://localhost:9093
+  keep-alive-timeout: 10m
+  connect-timeout: 200ms
+  read-timeout: 2000ms
+  static-labels:
+    application: ${spring.application.name}
+
+logging:
+  config: classpath:logback-spring.xml
