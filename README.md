@@ -15,7 +15,7 @@
 Отправка алертов осуществляется напрямую в Alertmanager через его [rest api](https://github.com/prometheus/alertmanager/blob/main/api/v2/openapi.yaml), минуя Prometheus.
 
 В [настройках alertmanager-а](./docker/alertmanager/alertmanager.yml) задан receiver 'telegram' для отправки алертов в Telegram.  
-А также указан [go шаблон](./docker/alertmanager/templates/telegram_alerts.tmpl) для сообщения, который будет отправляться в Telegram.  
+А также указан [go шаблон](./docker/alertmanager/templates/telegram_alerts.tmpl) для сообщения, которое будет отправляться в Telegram.  
 В конфигурации aleranager-а указывается путь к шаблонам: `/etc/alertmanager/templates/*.tmpl`.  
 Так как alertmanager запускается в docker-контейнере, нужно прикинуть директорию с нашими шаблонами `./docker/alertmanager/templates` в контейнер по пути `/etc/alertmanager/templates`.  
 
