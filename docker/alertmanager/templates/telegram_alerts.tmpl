@@ -1,9 +1,8 @@
 {{ define "telegram_alerts.message" }}
-
 Alert <b>{{ .CommonLabels.alertname }}</b> has been triggered!
 {{ range .Alerts }}
 <b>Application:</b> {{ .Labels.application }}
-<b>Date/Time:</b> {{ .StartsAt.Format "2006-01-02 15:04:05 -0700 (MST)" }}
+<b>Date/Time:</b> {{ .StartsAt.Format "2006-01-02 15:04:05 -0700" }}
 <b>Details:</b>
 <pre>
 {{- range .Labels.SortedPairs }}
